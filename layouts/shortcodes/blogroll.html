@@ -1,17 +1,30 @@
-<ul class="blogroll">
+<table class="blogroll">
   {{ $show_hostname := .Get "show_hostname" }}
   {{ $show_about := .Get "show_about" }}
+  <tr>
+    <th class="blogroll-name">Name</th>
+    {{ if $show_hostname }}<th class="blogroll-host">{{ (urls.Parse .url).Hostname }}</th>{{ end }}
+    {{ if $show_about }}<th class="blogroll-about">{{ .about }}</th>{{ end }}
+  </tr>
   {{ if .Get "name" }}
     {{ $name := .Get "name" }}
     {{ $filename := (replace $name " " "-") | lower }}
     {{ with index $.Site.Data.blogrolls $filename }}
       {{ range . }}
-        <li><a href="{{ .url }}">{{ .name }}{{ if $show_hostname }}: <span>{{ (urls.Parse .url).Hostname }}</span>{{ end }}</a>{{ if $show_about }}<div class="blogroll_about">{{ .about }}</div>{{ end }}</li>
+        <tr>
+          <td class="blogroll-name"><a href="{{ .url }}">{{ .name }}</a></td>
+          {{- if $show_hostname }}<td class="blogroll-host">{{ (urls.Parse .url).Hostname }}</td>{{- end }}
+          {{- if $show_about }}<td class="blogroll-about">{{ .about }}</td>{{ end }}
+        </tr>
       {{ end }}
     {{ end }}
   {{ else }}
     {{ range .Site.Data.blogrolls.recommendations }}
-      <li><a href="{{ .url }}">{{ .name }}{{ if $show_hostname }}: <span>{{ (urls.Parse .url).Hostname }}</span>{{ end }}</a>{{ if $show_about }}<div class="blogroll_about">{{ .about }}</div>{{ end }}</li>
+      <tr>
+        <td class="blogroll-name"><a href="{{ .url }}">{{ .name }}</a></td>
+        {{ if $show_hostname }}<td class="blogroll-host">{{ (urls.Parse .url).Hostname }}</td>{{ end }}
+        {{ if $show_about }}<td class="blogroll-about">{{ .about }}</td>{{ end }}
+      </tr>
     {{ end }}
   {{ end }}
-</ul>
+</table>
