@@ -2,9 +2,9 @@
   {{ $show_hostname := .Get "show_hostname" }}
   {{ $show_about := .Get "show_about" }}
   <tr>
-    <th class="blogroll-name">Name</th>
-    {{ if $show_hostname }}<th class="blogroll-host">Host</th>{{ end }}
-    {{ if $show_about }}<th class="blogroll-about">About</th>{{ end }}
+    <th>Name</th>
+    {{ if $show_hostname }}<th>Host</th>{{ end }}
+    {{ if $show_about }}<th>About</th>{{ end }}
   </tr>
   {{ if .Get "name" }}
     {{ $name := .Get "name" }}
