@@ -3,8 +3,8 @@
   {{ $show_about := .Get "show_about" }}
   <tr>
     <th class="blogroll-name">Name</th>
-    {{ if $show_hostname }}<th class="blogroll-host">{{ (urls.Parse .url).Hostname }}</th>{{ end }}
-    {{ if $show_about }}<th class="blogroll-about">{{ .about }}</th>{{ end }}
+    {{ if $show_hostname }}<th class="blogroll-host">Host</th>{{ end }}
+    {{ if $show_about }}<th class="blogroll-about">About</th>{{ end }}
   </tr>
   {{ if .Get "name" }}
     {{ $name := .Get "name" }}
