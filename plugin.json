@@ -1,7 +1,7 @@
 {
-  "version": "1.0.0",
-  "title": "Tablular Blogroll Shortcode",
-  "description": "Add a shortcode to include recommendations on your blog. Forked from microdotblog/plugin-blogroll-shortcode",
+  "version": "1.0.1",
+  "title": "Micro.Recommends",
+  "description": "Add a shortcode to include recommendations on your blog. Forked from @Manton's microdotblog/plugin-blogroll-shortcode",
   "includes": [
     "plugin_blogroll.html"
   ]  
